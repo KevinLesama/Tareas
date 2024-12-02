@@ -9,15 +9,59 @@
 <body>
     <nav>
         <ul>
-            <li><a href="#" style="background-color: rgb(77, 77, 77); ">Hoy</a></li>
+            <li><a href="#" style="opacity: 50%; background-color: rgb(255, 255, 255); ">Hoy</a></li>
             <li><a href="#" >Semana</a></li>
             <li><a href="#">Mes</a></li>
             <li><a href="#">Calendario</a></li>
           </ul>
     </nav>
     <div class="hoy">
-        
+        <button class="btnright" id="agregar">+</button><br><br>
     </div>
+    <div class="hoy form">
+        <button class="btnright" id="cerrara">-</button>
+        <h2>Agregar Tarea</h2>
+        <form id="formTarea">
+          <!-- Campo para el nombre de la tarea -->
+          <label for="nombre">Nombre de la tarea:</label>
+          <input type="text" id="nombre" name="nombre" maxlength="30" required placeholder="30 letras max">
+          <br><br>
+          
+          <!-- Selector para el día de la semana -->
+          <label>
+            <input type="checkbox" name="dia" value="Lunes">
+            <span>Lunes</span>
+          </label><br>
+          <label>
+            <input type="checkbox" name="dia" value="Martes">
+            <span>Martes</span>
+          </label><br>
+          <label>
+            <input type="checkbox" name="dia" value="Miércoles">
+            <span>Miércoles</span>
+          </label><br>
+          <label>
+            <input type="checkbox" name="dia" value="Jueves">
+            <span>Jueves</span>
+          </label><br>
+          <label>
+            <input type="checkbox" name="dia" value="Viernes">
+            <span>Viernes</span>
+          </label><br>
+          <label>
+            <input type="checkbox" name="dia" value="Sábado">
+            <span>Sábado</span>
+          </label><br>
+          <label>
+            <input type="checkbox" name="dia" value="Domingo">
+            <span>Domingo</span>
+          </label><br>
+      
+          <!-- Botón para enviar -->
+          <button type="submit" class="btn">Guardar</button>
+        </form>
+      </div>
+      
 <script src="javas.js"></script>
 </body>
 </html>
