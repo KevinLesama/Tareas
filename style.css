@@ -1,0 +1,21 @@
+/* Estilos base (Desktop-first o general) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  
+  /* Media Queries */
+  
+  /* Para pantallas de tablets (máximo 768px) */
+  @media (max-width: 768px) {
+ 
+  }
+  
+  /* Para pantallas móviles (máximo 480px) */
+  @media (max-width: 480px) {
+    
+  }
+  
