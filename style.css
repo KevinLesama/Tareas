@@ -59,7 +59,7 @@ body {
 /* Estilo general del formulario */
 .hoy.form {
   position: fixed;
-  top: 0;
+  top: -5000;
   left: 50%;
   transform: translateX(-50%);
   width: 50%;
@@ -72,7 +72,13 @@ body {
   border-radius: 8px;
   font-size: 3vh;
 }
-
+.cajaTexto{
+  height: 3vh;
+}
+#tareasHoy{
+  width: 100vh;
+  height: 3vh;
+}
 /* Ocultar los cuadros de los checkboxes */
 input[type="checkbox"] {
   display: none;
@@ -133,6 +139,9 @@ nav a:hover{
     }
     nav a {
       font-size: 2vh;
+    }
+    .cajaTexto{
+      width: 20vh;
     }
   }
   
