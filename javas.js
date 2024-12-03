@@ -41,15 +41,16 @@ function renderizarTareas() {
         // Mostrar la información de la tarea
         tareaDiv.innerHTML = `
             <p class="hoy"><strong>${tarea.nombre}</strong></p>
-            <button class="options-btn" onclick="borrarTarea(${index})">...</button>
+            <button class="options-btn" onclick="borrarTarea(${index})">Borrar</button>
         `;
 
         // Agregar un botón para marcar como hecho
         let btnHecho = document.createElement("button");
         btnHecho.classList.add("btnright");
-        btnHecho.textContent = "Marcar como hecho";
+        btnHecho.textContent = "Hecho";
         btnHecho.addEventListener("click", function() {
             tareas[index].hecho = "sí"; // Cambiar estado
+            
             localStorage.setItem("tareas", JSON.stringify(tareas)); // Actualizar localStorage
             renderizarTareas(); // Volver a renderizar
         });
@@ -65,6 +66,8 @@ function borrarTarea(index) {
     localStorage.setItem("tareas", JSON.stringify(tareas)); // Actualizar localStorage
     renderizarTareas(); // Volver a renderizar
 }
-
+tareas.push({
+    nombre:"hola",dia:"Lunes",hecho:"no"
+})
 // Llamar a la función para mostrar las tareas al cargar la página
 renderizarTareas();
