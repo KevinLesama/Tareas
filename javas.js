@@ -69,5 +69,5 @@ function borrarTarea(index) {
 tareas.push({
     nombre:"hola",dia:"Lunes",hecho:"no"
 })
-// Llamar a la función para mostrar las tareas al cargar la página
+
 renderizarTareas();
