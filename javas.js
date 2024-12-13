@@ -34,6 +34,7 @@ function renderizarTareas() {
     }
 
     tareas.forEach((tarea, index) => {
+        
         // Crear un elemento para cada tarea
         let tareaDiv = document.createElement("div");
         tareaDiv.className = "tarea";
@@ -66,8 +67,33 @@ function borrarTarea(index) {
     localStorage.setItem("tareas", JSON.stringify(tareas)); // Actualizar localStorage
     renderizarTareas(); // Volver a renderizar
 }
-tareas.push({
-    nombre:"hola",dia:"Lunes",hecho:"no"
-})
+
+document.getElementById("guardar").addEventListener("click", function traer() {
+    // Obtener los valores de los campos
+    let nombreid = document.getElementById("nombre").value;
+    let lunes = document.getElementById("lunes");
+    let martes = document.getElementById("martes");
+    let miercoles = document.getElementById("miercoles");
+    let jueves = document.getElementById("jueves");
+    let viernes = document.getElementById("viernes");
+    let sabado = document.getElementById("sabado");
+    let domingo = document.getElementById("domingo");
+
+    // Agregar la nueva tarea al array
+    tareas.push({
+        nombre: nombreid,
+        lunes: lunes.checked ? "si" : "no",
+        martes: martes.checked ? "si" : "no",
+        miercoles: miercoles.checked ? "si" : "no",
+        jueves: jueves.checked ? "si" : "no",
+        viernes: viernes.checked ? "si" : "no",
+        sabado: sabado.checked ? "si" : "no",
+        domingo: domingo.checked ? "si" : "no",
+        hecho: "no"
+    });
+
+    // Actualizar el localStorage
+    localStorage.setItem("tareas", JSON.stringify(tareas));
+});
 
 renderizarTareas();
