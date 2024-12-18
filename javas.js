@@ -36,26 +36,30 @@ function renderizarTareas() {
     tareas.forEach((tarea, index) => {
         
         // Crear un elemento para cada tarea
-        let tareaDiv = document.createElement("div");
+        var tareaDiv = document.createElement("div");
         tareaDiv.className = "tarea";
-
+        
         // Mostrar la información de la tarea
         tareaDiv.innerHTML = `
             <p class="hoy"><strong>${tarea.nombre}</strong></p>
-            <button class="options-btn" onclick="borrarTarea(${index})">Borrar</button>
+            <button class="btnBorrar" onclick="borrarTarea(${index})">Borrar</button>
         `;
 
         // Agregar un botón para marcar como hecho
         let btnHecho = document.createElement("button");
-        btnHecho.classList.add("btnright");
+        btnHecho.classList.add("btn");
+        
         btnHecho.textContent = "Hecho";
         btnHecho.addEventListener("click", function() {
             tareas[index].hecho = "sí"; // Cambiar estado
-            
             localStorage.setItem("tareas", JSON.stringify(tareas)); // Actualizar localStorage
             renderizarTareas(); // Volver a renderizar
         });
-
+        if (tarea.hecho === "sí") {
+            tareaDiv.style.color = "green";
+            
+        }
+        
         tareaDiv.appendChild(btnHecho);
         listaTareasDiv.appendChild(tareaDiv);
     });

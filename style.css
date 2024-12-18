@@ -51,7 +51,13 @@ nav a {
   position: absolute;
   right: 2vh;
 }
-
+.btnBorrar{
+  height: 4vh;
+  width: auto;
+  font-size: 2vh;
+  position: absolute;
+  right: 2vh;
+}
 /* Estilo del botón de acción */
 .btn {
   height: 5vh;
@@ -60,7 +66,7 @@ nav a {
 }
 
 /* Estilo general del formulario */
-.hoy.form {
+.form {
   position: fixed;
   top: -5000px;
   left: 50%;
@@ -87,12 +93,16 @@ nav a {
   width: 100%;
   padding: 10px;
 }
+.hecha {
+  background-color: lightgreen;
+  color: rgb(34, 201, 34) !important;
+  text-decoration: line-through; /* Opcional: tachar el texto */
+}
 
 /* Ocultar los cuadros de los checkboxes */
 input[type="checkbox"] {
   display: none;
 }
-
 /* Estilo para el texto de los checkboxes */
 label {
   display: block;
@@ -122,7 +132,22 @@ input[type="checkbox"]:checked + span {
   border-radius: 5px;
   cursor: pointer;
 }
-
+.marcarhecho{
+  position: fixed;
+  margin-top: 10vh;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 8px;
+  font-size: 3vh;
+}
 .btn:hover {
   background-color: #45a049;
 }
