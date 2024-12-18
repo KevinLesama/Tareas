@@ -50,10 +50,18 @@ function renderizarTareas() {
         btnHecho.classList.add("btn");
         
         btnHecho.textContent = "Hecho";
-        btnHecho.addEventListener("click", function() {
+        btnHecho.addEventListener("click",function atraerForm(){
+            document.getElementById("tareaHecha").style.top="0px";
+        })
+
+        document.getElementById("si").addEventListener("click", function() {
             tareas[index].hecho = "sí"; // Cambiar estado
             localStorage.setItem("tareas", JSON.stringify(tareas)); // Actualizar localStorage
             renderizarTareas(); // Volver a renderizar
+            document.getElementById("tareaHecha").style.top="-500000000000px";
+        });
+        document.getElementById("no").addEventListener("click", function() {
+            document.getElementById("tareaHecha").style.top="-500000000000px";
         });
         if (tarea.hecho === "sí") {
             tareaDiv.style.color = "green";

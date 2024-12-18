@@ -135,7 +135,7 @@ input[type="checkbox"]:checked + span {
 .marcarhecho{
   position: fixed;
   margin-top: 10vh;
-  top: 0;
+  top: -5000000000;
   left: 50%;
   transform: translateX(-50%);
   width: 50%;
