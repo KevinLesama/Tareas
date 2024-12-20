@@ -27,6 +27,10 @@ var listaTareasDiv = document.getElementById("tareasHoy");
 
 // Función para renderizar las tareas en el div
 function renderizarTareas() {
+    const fecha = new Date();
+    const diaSemana= fechaActual.getDay();
+    const dias = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
+    const tareasDelDia = tareas.filter(tarea => tarea[diasAtributos[diaSemana]] === "si");
     listaTareasDiv.innerHTML = ""; // Limpiar el contenido del div antes de renderizar
     if (tareas.length === 0) {
         listaTareasDiv.innerHTML = "<p>No hay tareas guardadas</p>";
