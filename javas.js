@@ -27,17 +27,21 @@ var listaTareasDiv = document.getElementById("tareasHoy");
 
 // Función para renderizar las tareas en el div
 function renderizarTareas() {
-    const fecha = new Date();
-    const diaSemana= fechaActual.getDay();
-    const dias = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
-    const tareasDelDia = tareas.filter(tarea => tarea[diasAtributos[diaSemana]] === "si");
+   // Obtener el día actual
+   const fechaActual = new Date();
+   const diaSemana = fechaActual.getDay();
+
+   // Asociar días de la semana con el atributo de la tarea
+   const diasAtributos = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
+   const tareasDelDia = tareas.filter(tarea => tarea[diasAtributos[diaSemana]] === "si");
+  
     listaTareasDiv.innerHTML = ""; // Limpiar el contenido del div antes de renderizar
-    if (tareas.length === 0) {
-        listaTareasDiv.innerHTML = "<p>No hay tareas guardadas</p>";
+    if (tareasDelDia.length === 0) {
+        listaTareasDiv.innerHTML = "<p>No hay tareas guardadas el dia </p>"+ diasAtributos[diaSemana];
         return;
     }
 
-    tareas.forEach((tarea, index) => {
+    tareasDelDia.forEach((tarea, index) => {
         
         // Crear un elemento para cada tarea
         var tareaDiv = document.createElement("div");
@@ -45,7 +49,7 @@ function renderizarTareas() {
         
         // Mostrar la información de la tarea
         tareaDiv.innerHTML = `
-            <p class="hoy"><strong>${tarea.nombre}</strong></p>
+            <p class="hoy"><strong>${tareasDelDia.nombre}</strong></p>
             <button class="btnBorrar" onclick="borrarTarea(${index})">Borrar</button>
         `;
 
@@ -59,7 +63,7 @@ function renderizarTareas() {
         })
 
         document.getElementById("si").addEventListener("click", function() {
-            tareas[index].hecho = "sí"; // Cambiar estado
+            tareasDelDia[index].hecho = "sí"; // Cambiar estado
             localStorage.setItem("tareas", JSON.stringify(tareas)); // Actualizar localStorage
             renderizarTareas(); // Volver a renderizar
             document.getElementById("tareaHecha").style.top="-500000000000px";
@@ -67,7 +71,7 @@ function renderizarTareas() {
         document.getElementById("no").addEventListener("click", function() {
             document.getElementById("tareaHecha").style.top="-500000000000px";
         });
-        if (tarea.hecho === "sí") {
+        if (tareasDelDia.hecho === "sí") {
             tareaDiv.style.color = "green";
             
         }
