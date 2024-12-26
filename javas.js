@@ -49,7 +49,7 @@ function renderizarTareas() {
         
         // Mostrar la información de la tarea
         tareaDiv.innerHTML = `
-            <p class="hoy"><strong>${tareasDelDia.nombre}</strong></p>
+            <p class="hoy"><strong>${tarea.nombre}</strong></p>
             <button class="btnBorrar" onclick="borrarTarea(${index})">Borrar</button>
         `;
 
